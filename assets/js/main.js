@@ -52,7 +52,6 @@
     var olympus = themeName === 'olympus';
     var icarus = themeName === 'icarus';
     var yearning = themeName === 'yearning';
-    var spiderman = themeName === 'spiderman';
     var robot = themeName === 'robot';
     var dreamworks = themeName === 'dreamworks';
     body.classList.toggle('theme-mono', mono);
@@ -62,12 +61,10 @@
     body.classList.toggle('theme-olympus', olympus);
     body.classList.toggle('theme-icarus', icarus);
     body.classList.toggle('theme-yearning', yearning);
-    body.classList.toggle('theme-spiderman', spiderman);
     body.classList.toggle('theme-robot', robot);
     body.classList.toggle('theme-dreamworks', dreamworks);
     setYearningLyrics(yearning);
     if (typeof syncYearningVideo === 'function') syncYearningVideo(yearning);
-    if (typeof syncSpidermanVideo === 'function') syncSpidermanVideo(spiderman);
     if (typeof syncRobotScene === 'function') syncRobotScene(robot);
     if (dreamworks && typeof syncDreamworksBackgroundToScroll === 'function') syncDreamworksBackgroundToScroll();
     for (var i = 0; i < themeChoices.length; i++) {
@@ -87,7 +84,7 @@
   } catch (error) {}
   var themeFromUrl = new URLSearchParams(window.location.search).get('theme');
   if (themeFromUrl) savedTheme = themeFromUrl;
-  applyTheme(savedTheme === 'mono' || savedTheme === 'amber' || savedTheme === 'violet' || savedTheme === 'cosmic' || savedTheme === 'olympus' || savedTheme === 'icarus' || savedTheme === 'yearning' || savedTheme === 'spiderman' || savedTheme === 'robot' || savedTheme === 'dreamworks' ? savedTheme : 'default');
+  applyTheme(savedTheme === 'mono' || savedTheme === 'amber' || savedTheme === 'violet' || savedTheme === 'cosmic' || savedTheme === 'olympus' || savedTheme === 'icarus' || savedTheme === 'yearning' || savedTheme === 'robot' || savedTheme === 'dreamworks' ? savedTheme : 'default');
 
   for (var themeIndex = 0; themeIndex < themeChoices.length; themeIndex++) {
     themeChoices[themeIndex].addEventListener('click', function () {
@@ -121,7 +118,6 @@
     var monoScans = [];
     var divineDust = [];
     var feathers = [];
-    var webPhase = 0;
     var activeBackgroundEffect = '';
 
     function sizeRain() {
@@ -238,8 +234,6 @@
           ? { faint: [172, 100, 57], hot: [255, 193, 107], bg: [26, 10, 8] }
         : body.classList.contains('theme-yearning')
           ? { faint: [170, 103, 144], hot: [255, 182, 216], bg: [22, 13, 25] }
-        : body.classList.contains('theme-spiderman')
-          ? { faint: [111, 139, 194], hot: [120, 170, 255], bg: [16, 5, 10] }
         : { faint: [124, 142, 176], hot: [79, 214, 255], bg: [6, 9, 17] };
     }
 
@@ -375,38 +369,12 @@
       }
     }
 
-    function drawWeb(palette) {
-      var cx = cssW * 0.78, cy = cssH * 0.18, radius = Math.max(cssW, cssH) * 0.88;
-      webPhase += 0.012;
-      rctx.strokeStyle = 'rgba(' + palette.hot[0] + ',' + palette.hot[1] + ',' + palette.hot[2] + ',0.20)';
-      rctx.lineWidth = 1;
-      for (var ring = 1; ring <= 7; ring++) {
-        rctx.beginPath();
-        rctx.arc(cx, cy, radius * ring / 7, 0, Math.PI * 2);
-        rctx.stroke();
-      }
-      for (var spoke = 0; spoke < 18; spoke++) {
-        var angle = (Math.PI * 2 * spoke / 18) + webPhase * 0.15;
-        rctx.beginPath();
-        rctx.moveTo(cx, cy);
-        rctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
-        rctx.stroke();
-      }
-      rctx.beginPath();
-      rctx.arc(cx, cy, 4 + Math.sin(webPhase * 2) * 1.5, 0, Math.PI * 2);
-      rctx.fillStyle = 'rgba(255,79,103,0.85)';
-      rctx.shadowColor = 'rgba(255,79,103,0.75)';
-      rctx.shadowBlur = 14;
-      rctx.fill();
-      rctx.shadowBlur = 0;
-    }
-
     function rainLoop() {
       if (pageVisible) {
         var palette = getRainPalette();
         var faintColor = palette.faint;
         var hotColor = palette.hot;
-        var backgroundEffect = body.classList.contains('theme-robot') ? 'robot' : body.classList.contains('theme-amber') ? 'embers' : body.classList.contains('theme-violet') ? 'stars' : body.classList.contains('theme-cosmic') ? 'comets' : body.classList.contains('theme-olympus') ? 'divine' : body.classList.contains('theme-icarus') ? 'feathers' : body.classList.contains('theme-spiderman') ? 'web' : body.classList.contains('theme-mono') ? 'scanlines' : 'binary';
+        var backgroundEffect = body.classList.contains('theme-robot') ? 'robot' : body.classList.contains('theme-amber') ? 'embers' : body.classList.contains('theme-violet') ? 'stars' : body.classList.contains('theme-cosmic') ? 'comets' : body.classList.contains('theme-olympus') ? 'divine' : body.classList.contains('theme-icarus') ? 'feathers' : body.classList.contains('theme-mono') ? 'scanlines' : 'binary';
 
         if (backgroundEffect !== activeBackgroundEffect) {
           rctx.clearRect(0, 0, cssW, cssH);
@@ -417,7 +385,7 @@
         my += (targetMY - my) * 0.12;
         curRadius += (targetRadius - curRadius) * 0.08;
 
-        if (backgroundEffect === 'robot' || backgroundEffect === 'comets' || backgroundEffect === 'stars' || backgroundEffect === 'embers' || backgroundEffect === 'scanlines' || backgroundEffect === 'divine' || backgroundEffect === 'feathers' || backgroundEffect === 'web') {
+        if (backgroundEffect === 'robot' || backgroundEffect === 'comets' || backgroundEffect === 'stars' || backgroundEffect === 'embers' || backgroundEffect === 'scanlines' || backgroundEffect === 'divine' || backgroundEffect === 'feathers') {
           rctx.clearRect(0, 0, cssW, cssH);
         } else {
           rctx.fillStyle = 'rgba(' + palette.bg[0] + ',' + palette.bg[1] + ',' + palette.bg[2] + ',0.09)';
@@ -458,12 +426,6 @@
           requestAnimationFrame(rainLoop);
           return;
         }
-        if (backgroundEffect === 'web') {
-          drawWeb(palette);
-          requestAnimationFrame(rainLoop);
-          return;
-        }
-
         var activeR = Math.max(curRadius, 0.001);
         var r2 = activeR * activeR;
 
@@ -513,7 +475,6 @@
   var loaderScreen = document.getElementById('loaderScreen');
   var loaderPercent = document.getElementById('loaderPercent');
   var musicAudio = document.getElementById('musicBgAudio');
-  var spidermanVideo = document.getElementById('spidermanBackgroundVideo');
   var yearningVideo = document.getElementById('yearningBackgroundVideo');
   var robotSpline = document.getElementById('robotSpline');
   var musicToggle = document.getElementById('musicToggle');
@@ -543,15 +504,6 @@
     } catch (error) {}
   }
 
-  function syncSpidermanVideo(active) {
-    if (!spidermanVideo) return;
-    if (!active) {
-      spidermanVideo.pause();
-      return;
-    }
-    spidermanVideo.play().catch(function () {});
-  }
-
   function syncYearningVideo(active) {
     if (!yearningVideo) return;
     if (!active) {
@@ -565,7 +517,6 @@
     robotSpline.setAttribute('url', robotSpline.getAttribute('data-scene'));
   }
   syncYearningVideo(body.classList.contains('theme-yearning'));
-  syncSpidermanVideo(body.classList.contains('theme-spiderman'));
   syncRobotScene(body.classList.contains('theme-robot'));
 
   function setMusicState() {
