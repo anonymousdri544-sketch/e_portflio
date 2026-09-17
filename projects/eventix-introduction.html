@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventix | Project Overview</title>
+  <style>
+    :root{--bg:#06101f;--bg-soft:#0c1b36;--panel:rgba(13,28,54,.92);--line:rgba(224,190,102,.24);--text:#f5f7fc;--muted:#b5c1d5;--gold:#dfba62;--gold-soft:#f0d58d;--blue:#77b9ff;--shadow:0 25px 60px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,#152d55,var(--bg) 48%);color:var(--text);line-height:1.7}.page{max-width:1100px;margin:0 auto;padding:48px 24px 80px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:48px;padding-bottom:16px;border-bottom:1px solid var(--line)}.brand{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:14px;color:var(--gold-soft)}.back-link{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:rgba(255,255,255,.02)}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;margin-bottom:42px}.hero h1{margin:0 0 20px;font-size:clamp(2.3rem,5vw,4rem);line-height:1.1}.accent{color:var(--gold-soft)}.lead{font-size:1.12rem;color:var(--muted);max-width:620px}.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.badge{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:.8rem;color:var(--muted)}.app-preview{min-height:420px;display:grid;place-items:center;background:linear-gradient(145deg,#1a315a,#071225);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.phone{width:220px;height:398px;padding:18px 15px 13px;border:3px solid var(--gold);border-radius:28px;background:#09162c;box-shadow:0 18px 34px rgba(0,0,0,.4);font-family:Arial,Helvetica,sans-serif}.phone-top{display:flex;justify-content:space-between;color:var(--gold-soft);font-size:10px;font-weight:700}.phone h3{font-size:21px;line-height:1.12;margin:27px 0 14px}.search{padding:10px 12px;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#aab8ce;font-size:11px}.chips{display:flex;gap:6px;margin:12px 0}.chips span{padding:5px 7px;border-radius:5px;background:var(--gold);color:#08142a;font-size:9px;font-weight:700}.event-card{display:flex;align-items:center;gap:11px;padding:11px;border-radius:10px;background:#162b4f}.date{padding-right:11px;border-right:1px solid rgba(224,190,102,.48);font-size:20px;font-weight:700;line-height:.8;color:var(--gold-soft)}.date small,.event-card small{font-size:8px;color:#aab8ce}.date small{color:var(--gold-soft)}.event-card strong{font-size:12px}.bottom-nav{display:flex;justify-content:space-between;margin-top:113px;padding-top:10px;border-top:1px solid rgba(255,255,255,.13);color:var(--gold-soft);font-size:9px}.section{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px 26px;margin-top:24px;box-shadow:var(--shadow)}.section h2{margin:0 0 18px;font-size:1.5rem}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}ul{margin:0;padding-left:18px;color:var(--muted)}li+li{margin-top:10px}.goal-box{background:rgba(224,190,102,.08);border:1px solid rgba(224,190,102,.25);border-radius:16px;padding:18px 20px;color:var(--muted)}.footer-note{text-align:center;margin-top:36px;color:var(--muted);font-size:.9rem}@media(max-width:800px){.hero,.two-col{grid-template-columns:1fr}.topbar{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <div class="brand">Eventix</div>
+      <a class="back-link" href="../adrian-banquil-eportfolio.html">&lt;- Back to Portfolio</a>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Campus events, made simple with <span class="accent">Eventix</span></h1>
+        <p class="lead">Eventix is a mobile-first, single-page web application for BCC school events. It brings event discovery, organization profiles, ticket booking, payments, and digital ticket verification into one focused mobile experience.</p>
+        <div class="hero-badges"><span class="badge">Vanilla JavaScript</span><span class="badge">Mobile-First</span><span class="badge">Ticketing Platform</span><span class="badge">BCC School Events</span></div>
+      </div>
+      <div class="app-preview" aria-label="Eventix mobile app interface preview">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-top"><span>9:41</span><span>EVENTIX</span><span>...</span></div>
+          <h3>Discover campus events</h3><div class="search">Search school events</div>
+          <div class="chips"><span>Tech</span><span>Sports</span><span>Cultural</span></div>
+          <div class="event-card"><div class="date">18<br><small>OCT</small></div><div><strong>CodeHEX 2026</strong><br><small>School of Computing</small></div></div>
+          <div class="bottom-nav"><span>Home</span><span>Tickets</span><span>Profile</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What the app is for</h2>
+      <div class="two-col">
+        <ul><li>Lets students discover and filter Tech, Sports, and Cultural school events</li><li>Provides organization profile pages for groups such as Code Hex and Kassimpa Squad</li><li>Shows organization member counts and hosted events in one directory</li><li>Creates digital passes with unique ticket identifiers and simulated QR codes</li></ul>
+        <div class="goal-box">The goal of Eventix is to make campus events easier to find, organize, and attend through a clear mobile-first ticketing experience.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Booking and payment flow</h2>
+      <div class="two-col">
+        <p class="lead">From the dashboard, users select an event, adjust ticket quantity, review a booking summary, choose a payment method, and receive confirmation. Active tickets remain available through the bottom navigation.</p>
+        <ul><li>Supports GCash, credit card, and over-the-counter transactions</li><li>Calculates a 5% service fee automatically</li><li>Displays a booking confirmation and digital ticket after the mock transaction</li></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Technical architecture</h2>
+      <p class="lead">The application uses a responsive 430px layout container to emulate a native mobile app. A centralized client-side JavaScript <code>state</code> object powers dynamic template-rendering functions across discovery, booking, payment, and ticket management screens. The interface uses modern CSS custom properties, Flexbox, Boxicons, and a dark navy-and-gold visual system.</p>
+    </section>
+
+    <div class="footer-note">Eventix - Project Overview</div>
+  </main>
+</body>
+</html>

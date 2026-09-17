@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adrian Gollegos Banquil — BSIT e-Portfolio</title>
+<meta name="description" content="e-Portfolio of Adrian Gollegos Banquil, 3rd Year BSIT student at Buenavista Community College.">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+<body>
+<div class="loader-screen" id="loaderScreen" aria-live="polite" aria-label="Loading portfolio">
+  <div class="loader-shell">
+    <div class="loader-status">
+      <div class="loader-mark" aria-hidden="true"></div>
+      <div class="loader-percent" id="loaderPercent" aria-live="polite">1%</div>
+    </div>
+    <div class="loader-line" aria-hidden="true"></div>
+    <div class="loader-text">Loading<span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+  </div>
+</div>
+<video class="spiderman-background-video" id="spidermanBackgroundVideo" muted loop playsinline preload="metadata" aria-hidden="true">
+  <source src="assets/images/Enhancer-HD-spiback.mp4" type="video/mp4">
+</video>
+<video class="yearning-background-video" id="yearningBackgroundVideo" muted loop playsinline preload="metadata" aria-hidden="true">
+  <source src="assets/images/yernv.mp4" type="video/mp4">
+</video>
+<div class="robot-background" aria-hidden="true">
+  <spline-viewer id="robotSpline" data-scene="assets/spline/robot-scene.splinecode" events-target="global" loading="lazy"></spline-viewer>
+</div>
+<div class="dreamworks-background" aria-hidden="true">
+  <span class="dreamworks-background-layer is-current"></span>
+  <span class="dreamworks-background-layer"></span>
+  <span class="dreamworks-particles"></span>
+</div>
+<canvas class="binary-rain-canvas" id="binaryRainCanvas" aria-hidden="true"></canvas>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-trail" aria-hidden="true"></div>
+<nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="gradient-nav-item" style="--nav-from:#a955ff;--nav-to:#ea51ff" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10Z"/></svg><span>Home</span></a></li>
+      <li><a href="#about" class="gradient-nav-item" style="--nav-from:#56ccf2;--nav-to:#2f80ed" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21c.6-4.1 3.2-6.2 7.5-6.2s6.9 2.1 7.5 6.2"/></svg><span>About</span></a></li>
+      <li><a href="#education" class="gradient-nav-item" style="--nav-from:#ffcb6b;--nav-to:#e99624" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg><span>Education</span></a></li>
+      <li><a href="#skills" class="gradient-nav-item" style="--nav-from:#80ff72;--nav-to:#32cbb5" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6 4 4-9 9H5v-4l9-9Z"/><path d="m12 8 4 4"/></svg><span>Skills</span></a></li>
+      <li><a href="#organization" class="gradient-nav-item" style="--nav-from:#f6a6ff;--nav-to:#9b69ed" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="17" r="2.3"/><circle cx="19" cy="17" r="2.3"/><path d="M10.2 9.5 6.8 14.8m6-5.3 4.4 5.3"/></svg><span>Organization</span></a></li>
+      <li><a href="#achievement" class="gradient-nav-item" style="--nav-from:#ffe16b;--nav-to:#ff8a45" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4M12 12v5m-4 4h8M9 17l-2 4m8-4 2 4"/></svg><span>Achievements</span></a></li>
+      <li><a href="#projects" class="gradient-nav-item" style="--nav-from:#59d5ff;--nav-to:#4169e1" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6V4h8v2m-7 6 2 2 4-4"/></svg><span>Projects</span></a></li>
+      <li><a href="#journey" class="gradient-nav-item" style="--nav-from:#a7ff83;--nav-to:#24b7a7" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18c4.5 0 2-9 7-9h3"/><path d="m16 3 3 3-3 3"/></svg><span>Journey</span></a></li>
+      <li><a href="#gallery" class="gradient-nav-item" style="--nav-from:#ff9e75;--nav-to:#f0528c" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg><span>Gallery</span></a></li>
+      <li><a href="#contact" class="gradient-nav-item" style="--nav-from:#c7a6ff;--nav-to:#e84fbd" data-nav><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Contact</span></a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#resume" class="btn btn-ghost btn-small magnetic">Résumé</a>
+      <details class="theme-menu">
+        <summary aria-label="Choose a color theme" title="Choose a color theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="10.5" r="2.1"/><circle cx="8.4" cy="7.8" r="1.7"/><circle cx="7.7" cy="13.4" r="1.7"/><circle cx="12.3" cy="16.5" r="1.7"/><path d="M12 3a9 9 0 1 0 0 18h1.2a1.8 1.8 0 0 0 1.2-3.14 1.8 1.8 0 0 1 1.2-3.14H18A3 3 0 0 0 21 12 9 9 0 0 0 12 3Z"/></svg>
+          <span class="sr-only">Color modes</span>
+        </summary>
+        <ul class="gradient-mode-list" aria-label="Color modes">
+          <li><button type="button" class="gradient-mode" style="--mode-from:#3d4d62;--mode-to:#10151d" data-theme-choice="default" aria-pressed="false"><span class="mode-icon">◐</span><span class="mode-name">Default</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#f4f4f4;--mode-to:#777" data-theme-choice="mono" aria-pressed="false"><span class="mode-icon">◑</span><span class="mode-name">Mono</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#ffc46b;--mode-to:#ff7a45" data-theme-choice="amber" aria-pressed="false"><span class="mode-icon">☀</span><span class="mode-name">Amber</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#c4a5ff;--mode-to:#7667ff" data-theme-choice="violet" aria-pressed="false"><span class="mode-icon">✦</span><span class="mode-name">Violet</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#77c5ff;--mode-to:#3759c8" data-theme-choice="cosmic" aria-pressed="false"><span class="mode-icon">✧</span><span class="mode-name">Cosmic</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#ffe4a3;--mode-to:#718fc2" data-theme-choice="olympus" aria-pressed="false"><span class="mode-icon">⚡</span><span class="mode-name">Olympus</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#ffc16b;--mode-to:#d84b35" data-theme-choice="icarus" aria-pressed="false"><span class="mode-icon">☼</span><span class="mode-name">Icarus</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#ffb6d8;--mode-to:#a47cff" data-theme-choice="yearning" aria-pressed="false"><span class="mode-icon">♡</span><span class="mode-name">Yearning</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#78aaff;--mode-to:#ff4f67" data-theme-choice="spiderman" aria-pressed="false"><span class="mode-icon">✺</span><span class="mode-name">Spider-Man</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#73f7ff;--mode-to:#6b73ff" data-theme-choice="robot" aria-pressed="false"><span class="mode-icon">◉</span><span class="mode-name">Robot</span></button></li>
+          <li><button type="button" class="gradient-mode" style="--mode-from:#d5e9ff;--mode-to:#5378b8" data-theme-choice="dreamworks" aria-pressed="false"><span class="mode-icon">☾</span><span class="mode-name">DreamWorks</span></button></li>
+        </ul>
+      </details>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<!-- ============================================
+     HERO
+============================================ -->
+<section class="hero" id="home">
+  <div class="grid-backdrop" aria-hidden="true"></div>
+  <div class="container" style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;justify-items:center;width:100%;">
+    <div class="hero-copy" data-reveal="up">
+      <div class="hero-kicker"><span class="blip" aria-hidden="true"></span>e-Portfolio</div>
+      <h1 class="typed-title" aria-label="Adrian Gollegos Banquil">
+        <span class="typed-line typed-name" aria-hidden="true">ADRIAN GOLLEGOS</span>
+        <span class="typed-line typed-surname" aria-hidden="true"></span>
+      </h1>
+      <p class="hero-role"><strong>3rd Year BSIT Student</strong> — Buenavista Community College</p>
+      <p class="hero-intro">Aspiring IT professional passionate about technology, programming, problem-solving, and continuous learning.</p>
+      <div class="hero-badges">
+        <span class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+          BSIT Student
+        </span>
+        <span class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9.5 8.5 3 9l5 4.5L6.5 20 12 16.5 17.5 20 16 13.5l5-4.5-6.5-.5Z"/></svg>
+          CodeHEX Champion
+        </span>
+        <span class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg>
+          AITS Auditor
+        </span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">View My Portfolio</a>
+        <a href="#resume" class="btn btn-ghost magnetic">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="hero-visual-frame">
+        <div class="hero-photo-layer" id="profilePhoto" role="img" aria-label="Placeholder portrait — replace with Adrian's actual photo">
+          <img class="profile-image" src="assets/images/adrian-profile.png" alt="Adrian Gollegos Banquil">
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span>Add your photo here</span>
+          </div>
+        </div>
+        <div class="hero-overlay-layer" id="heroOverlay" aria-hidden="true">
+          <div class="scan"></div>
+        </div>
+        <div class="reveal-ring" id="revealRing" aria-hidden="true"></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-cue" aria-hidden="true"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<!-- ============================================
+     ABOUT
+============================================ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>About Me</div>
+      <h2>I’m building my foundation in IT, one project at a time.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text" data-reveal="up">
+        <p>I am a <strong>3rd-year BSIT student at Buenavista Community College</strong>, fascinated by how software and systems work together — from the logic behind a program to the hardware that supports it.</p>
+        <p>I’m especially interested in <strong>programming, software development, and problem solving</strong>, and I see every class project and competition as an opportunity to strengthen my foundation and expand my skills.</p>
+        <p>Beyond academics, I take on leadership and responsibility as <strong>Auditor of the Alliance of Information Technology Students (AITS)</strong>, while continuing to seek opportunities to learn, grow, and contribute in the IT field.</p>
+        <div class="about-focus">
+          <span class="focus-chip">Programming</span>
+          <span class="focus-chip">Information Technology</span>
+          <span class="focus-chip">Software Development</span>
+          <span class="focus-chip">Problem Solving</span>
+          <span class="focus-chip">Computer Technologies</span>
+          <span class="focus-chip">Continuous Learning</span>
+        </div>
+      </div>
+      <div class="terminal-card" data-reveal="scale">
+        <div class="terminal-head">
+          <span></span><span></span><span></span>
+          <span class="title">whoami.sh</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="prompt">$</span> cicada_3301</div>
+          <div><span class="key">name</span> : <span class="val">Adrian Gollegos Banquil</span></div>
+          <div><span class="key">program</span> : <span class="val">BSIT</span></div>
+          <div><span class="key">year</span> : <span class="val">3rd Year</span></div>
+          <div><span class="key">school</span> : <span class="val">Buenavista Community College</span></div>
+          <div><span class="key">org</span> : <span class="val">AITS — Auditor</span></div>
+          <div><span class="prompt">$</span> <span class="terminal-cursor-blink"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     EDUCATION
+============================================ -->
+<section id="education">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Education</div>
+      <h2>Academic background</h2>
+    </div>
+    <div class="edu-card" data-reveal="up">
+      <div class="edu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
+      </div>
+      <div class="edu-body">
+        <h3>Bachelor of Science in Information Technology</h3>
+        <span class="school">Buenavista Community College</span>
+        <div class="edu-progress">
+          <div class="track">
+            <span class="seg is-filled"></span>
+            <span class="seg is-filled"></span>
+            <span class="seg is-filled"></span>
+            <span class="seg"></span>
+          </div>
+          <span class="label">Year 3 of 4 — typical BSIT track</span>
+        </div>
+      </div>
+      <div class="edu-year-badge">
+        <div class="num">3rd</div>
+        <div class="txt">YEAR LEVEL</div>
+      </div>
+    </div>
+    <div class="edu-card" data-reveal="up">
+      <div class="edu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
+      </div>
+      <div class="edu-body">
+        <h3>Senior High School - Vocational Courses</h3>
+        <span class="school">Bohol College of Science and Technology Inc. - Main Campus</span>
+        <div class="edu-progress">
+          <div class="edu-strands">
+            <span class="label"><strong>Grade 11:</strong> Electrical and Driving</span>
+            <span class="label"><strong>Grade 12:</strong> SMAW Welding and Driving NC II</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-year-badge">
+        <div class="num">SHS</div>
+        <div class="txt">VOCATIONAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SKILLS
+============================================ -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Technical Skills</div>
+      <h2>What I'm building on</h2>
+      <p>I’m growing my technical skills through my BSIT journey, learning the fundamentals and improving as I apply them in practice.</p>
+    </div>
+    <div class="skills-groups">
+      <div class="skill-group" data-reveal="up">
+        <div class="skill-group-head">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span>
+          <h3>Programming</h3>
+        </div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Programming Fundamentals</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Problem Solving</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Algorithmic Thinking</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Debugging</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div class="skill-group" data-reveal="up" style="transition-delay:.08s">
+        <div class="skill-group-head">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18Z"/></svg></span>
+          <h3>Web Development</h3>
+        </div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">HTML</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">CSS</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">JavaScript</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div class="skill-group" data-reveal="up" style="transition-delay:.16s">
+        <div class="skill-group-head">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"/></svg></span>
+          <h3>Computer &amp; IT</h3>
+        </div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Computer Fundamentals</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Software &amp; Hardware Knowledge</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Productivity Tools</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="skill-item"><div class="skill-item-top"><span class="name">Basic Troubleshooting</span></div><div class="skill-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ORGANIZATION & LEADERSHIP
+============================================ -->
+<section id="organization">
+  <div class="grid-backdrop" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Organization &amp; Leadership</div>
+      <h2>Organizational involvement</h2>
+    </div>
+    <div class="org-card" data-reveal="scale">
+      <div class="org-badge">
+        <div class="org-badge-visual">
+          <img class="logo-img base" src="assets/images/aits-logo.png" alt="AITS logo" aria-hidden="true">
+          <img class="logo-img reveal" src="assets/images/org-backdrop.jpg" alt="Organization background" aria-hidden="true">
+        </div>
+      </div>
+      <div class="org-info">
+        <h3 class="org-name">Alliance of Information Technology Students (AITS)</h3>
+        <p class="org-full">Buenavista Community College</p>
+        <div class="org-status-row">
+          <span class="org-status-pill role">Position — Auditor</span>
+          <span class="org-status-pill status">Status — Member</span>
+        </div>
+        <div class="org-traits">
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Responsibility</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Accountability</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v4M16 4v4"/></svg>Organization</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h6"/></svg>Documentation</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Teamwork</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg>Leadership</div>
+          <div class="org-trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>Attention to Detail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FEATURED ACHIEVEMENT
+============================================ -->
+<section id="achievement">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Featured Achievement</div>
+      <h2>A milestone worth highlighting</h2>
+    </div>
+    <div class="achievement-card" data-reveal="scale">
+      <div class="trophy-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3a4 4 0 0 1-4 5M7 5H4a4 4 0 0 0 4 5"/></svg>
+      </div>
+      <span class="achievement-rank">CHAMPION</span>
+      <h3>CodeHEX Computer Programming Competition</h3>
+      <p>I was recognized for top performance in a Java programming competition, reflecting my growing expertise in Java development, problem-solving, and algorithmic thinking.</p>
+      <div class="achievement-badge-row">
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>Programming Competition</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9.5 8.5 3 9l5 4.5L6.5 20 12 16.5 17.5 20 16 13.5l5-4.5-6.5-.5Z"/></svg>Top Performer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PROJECTS
+============================================ -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Projects</div>
+      <h2>Selected work</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card" data-reveal="up">
+        <div class="project-thumb" style="overflow:hidden;">
+          <img src="assets/images/palayplan-cover.png" alt="PalayPlan Mobile app preview" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="project-body">
+          <h3>PalayPlan Mobile</h3>
+          <p>PalayPlan is a smart mobile app designed to help rice farmers plan schedules, monitor crop conditions, and simplify farm decision-making through a simple digital interface.</p>
+          <div class="project-tags"><span>Flutter</span><span>Mobile App</span><span>Planning System</span></div>
+          <a class="project-link" href="projects/palayplan-introduction.html">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+      <div class="project-card" data-reveal="up">
+        <div class="project-thumb eventix-thumb" aria-label="Eventix mobile event ticketing app preview">
+          <div class="eventix-phone" aria-hidden="true">
+            <div class="eventix-topbar"><span>9:41</span><span>EVENTIX</span><span>...</span></div>
+            <div class="eventix-welcome">Discover campus events</div>
+            <div class="eventix-search">Search school events</div>
+            <div class="eventix-chips"><span>Tech</span><span>Sports</span><span>Cultural</span></div>
+            <div class="eventix-event"><span class="eventix-date">18<br><small>OCT</small></span><span>CodeHEX<br><small>School of Computing</small></span></div>
+            <div class="eventix-nav"><span>Home</span><span>Tickets</span><span>Profile</span></div>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Eventix</h3>
+          <p>A mobile-first single-page web app for BCC school event discovery, organization management, ticket booking, and digital pass verification.</p>
+          <div class="project-tags"><span>Vanilla JavaScript</span><span>Mobile-First</span><span>Ticketing</span></div>
+          <a class="project-link" href="projects/eventix-introduction.html">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ACTIVITIES & EXPERIENCES
+============================================ -->
+<section id="activities">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Activities &amp; Experiences</div>
+      <h2>Along the way</h2>
+    </div>
+    <div class="timeline" data-reveal="up">
+      <div class="timeline-item">
+        <span class="timeline-dot"></span>
+        <div class="timeline-card">
+          <span class="tl-tag">ACADEMIC</span>
+          <h3>BSIT Coursework</h3>
+          <p>Ongoing coursework at Buenavista Community College covering programming, IT fundamentals, and applied projects.</p>
+        </div>
+      </div>
+      <div class="timeline-item is-highlight">
+        <span class="timeline-dot"></span>
+        <div class="timeline-card">
+          <span class="tl-tag">ORGANIZATION</span>
+          <h3>AITS Membership — Auditor</h3>
+          <p>Active member of the Alliance of Information Technology Students, currently serving as Auditor.</p>
+        </div>
+      </div>
+      <div class="timeline-item is-highlight">
+        <span class="timeline-dot"></span>
+        <div class="timeline-card">
+          <span class="tl-tag">COMPETITION</span>
+          <h3>CodeHEX Computer Programming Competition — Champion</h3>
+          <p>Won the championship in a computer programming competition, applying programming and problem-solving skills under contest conditions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CERTIFICATES & AWARDS
+============================================ -->
+<section id="certificates">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Certificates &amp; Awards</div>
+      <h2>Recognition</h2>
+      <p>Tap a certificate to view it in detail.</p>
+    </div>
+    <div class="cert-grid">
+      <button class="cert-card" data-reveal="up" data-cert-title="CodeHEX Computer Programming Competition" data-cert-rank="Champion" data-cert-desc="Awarded as champion in the CodeHEX Computer Programming Competition.">
+        <div class="cert-thumb">
+          <span class="rank-tag">CHAMP</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3a4 4 0 0 1-4 5M7 5H4a4 4 0 0 0 4 5"/></svg>
+        </div>
+        <div class="cert-info"><h3>CodeHEX Competition</h3><p>Champion — Programming</p></div>
+      </button>
+      <button class="cert-card is-placeholder" data-reveal="up" style="transition-delay:.08s" data-cert-title="Add certificate" data-cert-rank="" data-cert-desc="Upload and describe a certificate here.">
+        <div class="cert-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <div class="cert-info"><h3>Add certificate</h3><p>Placeholder</p></div>
+      </button>
+      <button class="cert-card is-placeholder" data-reveal="up" style="transition-delay:.16s" data-cert-title="Add certificate" data-cert-rank="" data-cert-desc="Upload and describe a certificate here.">
+        <div class="cert-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <div class="cert-info"><h3>Add certificate</h3><p>Placeholder</p></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PROGRAMMING JOURNEY
+============================================ -->
+<section id="journey">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Programming Journey</div>
+      <h2>How it's progressing</h2>
+    </div>
+    <div class="journey-track" data-reveal="up">
+      <div class="journey-node">
+        <div class="node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <h4>Learning</h4>
+        <p>Building the fundamentals</p>
+      </div>
+      <div class="journey-node">
+        <div class="node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+        <h4>Practicing</h4>
+        <p>Writing code regularly</p>
+      </div>
+      <div class="journey-node">
+        <div class="node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4"/><path d="M7 13V7a5 5 0 0 1 10 0v6"/></svg></div>
+        <h4>Building</h4>
+        <p>Making real projects</p>
+      </div>
+      <div class="journey-node">
+        <div class="node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9.5 8.5 3 9l5 4.5L6.5 20 12 16.5 17.5 20 16 13.5l5-4.5-6.5-.5Z"/></svg></div>
+        <h4>Competing</h4>
+        <p>Testing skills under pressure</p>
+      </div>
+      <div class="journey-node">
+        <div class="node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg></div>
+        <h4>Improving</h4>
+        <p>Refining, one iteration at a time</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     REFLECTION
+============================================ -->
+<section id="reflection">
+  <div class="grid-backdrop" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Reflection</div>
+      <h2>Looking back so far</h2>
+    </div>
+    <div class="reflection-wrap">
+      <div class="reflection-quote" data-reveal="up">
+        <p>Every error message taught me something I couldn't have learned from a lecture alone.</p>
+      </div>
+      <div class="reflection-body" data-reveal="up" style="transition-delay:.1s">
+        <p>Studying BSIT has been a steady process of trial, error, and small breakthroughs. Programming challenges that once felt overwhelming became manageable once I learned to break them into smaller pieces — a habit that now shapes how I approach most problems, technical or otherwise.</p>
+        <p>Competing in CodeHEX pushed me to apply what I'd learned under real pressure, and it reinforced how much continuous learning matters in this field — there is always another concept, tool, or approach worth picking up.</p>
+        <p>Serving as Auditor for AITS has also shaped my growth outside the classroom, building a sense of responsibility, accountability, and teamwork that I expect to carry into my future work as an IT professional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CAREER GOALS
+============================================ -->
+<section id="goals">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Career Goals</div>
+      <h2>Where this is headed</h2>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-card" data-reveal="up">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg></span>
+        <h3>Become a skilled IT professional</h3>
+        <p>Build a well-rounded foundation across programming and IT practice.</p>
+      </div>
+      <div class="goal-card" data-reveal="up" style="transition-delay:.06s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span>
+        <h3>Improve programming abilities</h3>
+        <p>Keep strengthening core logic, debugging, and coding practice.</p>
+      </div>
+      <div class="goal-card" data-reveal="up" style="transition-delay:.12s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4"/><path d="M7 13V7a5 5 0 0 1 10 0v6"/></svg></span>
+        <h3>Build real-world applications</h3>
+        <p>Turn coursework knowledge into working, usable software.</p>
+      </div>
+      <div class="goal-card" data-reveal="up" style="transition-delay:.18s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <h3>Develop technical expertise</h3>
+        <p>Go deeper into the tools and technologies that matter most.</p>
+      </div>
+      <div class="goal-card" data-reveal="up" style="transition-delay:.24s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg></span>
+        <h3>Continue professional growth</h3>
+        <p>Keep learning past graduation — this field never stops moving.</p>
+      </div>
+      <div class="goal-card" data-reveal="up" style="transition-delay:.3s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Contribute to the tech field</h3>
+        <p>Put these skills toward work that has a real, useful impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     GALLERY
+============================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Gallery</div>
+      <h2>Moments &amp; milestones</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile" data-reveal="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Academic Activities</span></div>
+      <div class="gallery-tile" data-reveal="up" style="transition-delay:.05s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Programming Competitions</span></div>
+      <div class="gallery-tile" data-reveal="up" style="transition-delay:.1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Certificates</span></div>
+      <div class="gallery-tile has-photo" data-reveal="up" tabindex="0" role="button" aria-label="Open organization activities gallery" style="transition-delay:.15s">
+        <div class="org-activity-grid">
+          <img src="assets/gallery/organization-activities/794991361_1116207161075887_7177500803892601151_n.jpg" alt="Organization activity 1">
+          <img src="assets/gallery/organization-activities/795286329_1817971816031137_705188924906281463_n.jpg" alt="Organization activity 2">
+          <img src="assets/gallery/organization-activities/796267416_1333252968719734_596288665500886955_n.jpg" alt="Organization activity 3">
+          <img src="assets/gallery/organization-activities/797334151_1605776534384963_2755718773674785834_n.jpg" alt="Organization activity 4">
+        </div>
+        <div class="tile-label">Organization Activities</div>
+      </div>
+      <div class="gallery-tile" data-reveal="up" style="transition-delay:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Projects</span></div>
+      <div class="gallery-tile" data-reveal="up" style="transition-delay:.25s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Campus Experiences</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     RESUME / CV
+============================================ -->
+<section id="resume">
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Résumé</div>
+      <h2>Downloadable CV</h2>
+    </div>
+    <div class="resume-panel" data-reveal="up">
+      <div>
+        <h3>Save a copy of this résumé</h3>
+        <p>Opens your browser's print dialog — choose "Save as PDF" as the destination to download it.</p>
+      </div>
+      <button class="btn btn-primary magnetic" id="printResumeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg>
+        Download CV
+      </button>
+    </div>
+    <div class="resume-doc" id="resume-print" data-reveal="up">
+      <div class="resume-doc-head">
+        <div>
+          <h3>Adrian Gollegos Banquil</h3>
+          <span class="sub">3rd Year BSIT Student — Buenavista Community College</span>
+        </div>
+      </div>
+      <div class="resume-cols">
+        <div>
+          <div class="resume-block">
+            <h4>EDUCATION</h4>
+            <ul>
+              <li>Bachelor of Science in Information Technology — Buenavista Community College (3rd Year, in progress)</li>
+              <li>Senior High School Vocational Courses — Bohol College of Science and Technology Inc., Main Campus: Grade 11 - Electrical and Driving; Grade 12 - SMAW Welding and Driving NC II</li>
+            </ul>
+          </div>
+          <div class="resume-block">
+            <h4>TECHNICAL SKILLS</h4>
+            <ul>
+              <li>Programming Fundamentals, Problem Solving, Algorithmic Thinking, Debugging</li>
+              <li>HTML, CSS, JavaScript, Bootstrap 5, Flutter, Dart</li>
+              <li>Computer Fundamentals, Software &amp; Hardware Knowledge, Productivity Tools, Basic Troubleshooting</li>
+            </ul>
+          </div>
+          <div class="resume-block">
+            <h4>ORGANIZATION &amp; LEADERSHIP</h4>
+            <ul>
+              <li>Alliance of Information Technology Students (AITS) — Auditor</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="resume-block">
+            <h4>ACHIEVEMENTS</h4>
+            <ul>
+              <li>Champion — CodeHEX Computer Programming Competition</li>
+            </ul>
+          </div>
+          <div class="resume-block">
+            <h4>PROJECTS</h4>
+            <ul>
+              <li><a href="projects/palayplan-introduction.html">PalayPlan Mobile</a> — Flutter mobile app for rice-farm planning, crop monitoring, and farm decision-making</li>
+            </ul>
+          </div>
+          <div class="resume-block">
+            <h4>ACTIVITIES</h4>
+            <ul>
+              <li>BSIT Coursework, AITS Membership, CodeHEX Competition</li>
+            </ul>
+          </div>
+          <div class="resume-block">
+            <h4>CONTACT</h4>
+            <ul>
+              <li><a href="mailto:banquiladrian@gmail.com">banquiladrian@gmail.com</a> · <a href="tel:+639537784345">09537784345</a></li>
+              <li><a href="https://www.facebook.com/AdrianNnNSsS" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://github.com/Kioian89" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/adrian-gollegos-banquil-3a4a53262/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTACT
+============================================ -->
+<section id="contact">
+  <div class="grid-backdrop" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head" data-reveal="up">
+      <div class="eyebrow-label"><span class="dash"></span>Contact</div>
+      <h2>Let's connect</h2>
+    </div>
+    <div class="contact-grid" data-reveal="up">
+      <div class="contact-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+        <div><div class="label">EMAIL</div><div class="value">banquiladrian@gmail.com</div></div>
+      </div>
+      <div class="contact-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+        <div><div class="label">PHONE</div><div class="value">09537784345</div></div>
+      </div>
+      <div class="contact-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></span>
+        <div><div class="label">FACEBOOK</div><div class="value"><a href="https://www.facebook.com/AdrianNnNSsS" target="_blank" rel="noopener noreferrer">AdrianNnNSsS</a></div></div>
+      </div>
+      <div class="contact-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></span>
+        <div><div class="label">GITHUB</div><div class="value">Kioian89</div></div>
+      </div>
+      <div class="contact-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+        <div><div class="label">LINKEDIN</div><div class="value"><a href="https://www.linkedin.com/in/adrian-gollegos-banquil-3a4a53262/" target="_blank" rel="noopener noreferrer">Adrian Gollegos Banquil</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Adrian Gollegos Banquil</div>
+        <div class="footer-sub">BSIT Student · Buenavista Community College</div>
+      </div>
+      <a href="#home" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-badges">
+        <span>AITS — Auditor</span>
+        <span>Champion — CodeHEX Computer Programming Competition</span>
+      </div>
+      <div class="footer-sub">&copy; <span id="year"></span> Adrian Gollegos Banquil</div>
+    </div>
+  </div>
+</footer>
+
+<!-- MUSIC CONTROL -->
+<div class="music-toggle is-muted" id="musicToggle" aria-label="Unmute background music" aria-pressed="false" title="Unmute background music">
+  <span class="music-disc" id="musicToggleLabel" aria-hidden="true"></span>
+</div>
+<audio class="music-bg" id="musicBgAudio" preload="auto" loop playsinline muted></audio>
+<div class="yearning-quotes" aria-hidden="true">
+  <span>"Minsan, ang pagmamahal ay hindi sapat para manatili."</span>
+  <span>"Ikaw ang gusto ko, pero hindi ako ang pinili mo."</span>
+  <span>"May mga paalam na mas mabigat kaysa sa pagkawala."</span>
+  <span>"Tinuruan mo akong magmahal, pero hindi kung paano lumimot."</span>
+  <span>"Hindi lahat ng minahal ay nagiging atin."</span>
+</div>
+<div class="yearning-lyrics" aria-hidden="true">
+  <span>I&#39;ve been waitin&#39; for so long</span>
+  <span>For somethin&#39; to arrive</span>
+  <span>For love to come along</span>
+  <span>Now our dreams are comin&#39; true</span>
+  <span>Through the good times and the bad</span>
+  <span>Yeah, I&#39;ll be standin&#39; there by you, oh</span>
+</div>
+
+
+<script type="module" src="assets/spline/spline-viewer.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

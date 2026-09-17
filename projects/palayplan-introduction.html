@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PalayPlan Mobile | Project Overview</title>
+  <style>
+    :root {
+      --bg: #061119;
+      --bg-soft: #0d1d2a;
+      --panel: rgba(17, 29, 40, 0.9);
+      --line: rgba(122, 180, 255, 0.18);
+      --text: #ebf5ff;
+      --muted: #a8bfd6;
+      --cyan: #5ed6ff;
+      --green: #72f1b8;
+      --gold: #ffca70;
+      --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #0d1d2a, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: var(--cyan);
+    }
+    .back-link {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.02);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 42px;
+    }
+    .hero h1 {
+      margin: 0 0 20px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+    .hero .accent {
+      color: var(--cyan);
+    }
+    .lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .project-image {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px 26px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+    }
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 1.5rem;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    li + li { margin-top: 10px; }
+    .goal-box {
+      background: rgba(94,214,255,0.06);
+      border: 1px solid rgba(94,214,255,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      color: var(--muted);
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 800px) {
+      .hero, .two-col {
+        grid-template-columns: 1fr;
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">PalayPlan</div>
+      <a class="back-link" href="../adrian-banquil-eportfolio.html">← Back to Portfolio</a>
+    </div>
+
+    <div class="hero">
+      <div>
+        <h1>Helping farmers plan smarter with <span class="accent">PalayPlan</span></h1>
+        <p class="lead">
+          PalayPlan is a mobile application concept created to support rice farmers in organizing field activities,
+          planning schedules, and making more informed decisions through a simple and user-friendly digital experience.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">Flutter</span>
+          <span class="badge">Mobile App</span>
+          <span class="badge">Agriculture</span>
+          <span class="badge">Planning System</span>
+        </div>
+      </div>
+      <div class="project-image">
+        <img src="../assets/images/palayplan-cover.png" alt="PalayPlan app preview" />
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What the app is for</h2>
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>Helps farmers organize planting and harvesting schedules</li>
+            <li>Allows better tracking of farm activities and tasks</li>
+            <li>Provides a more readable and structured workflow for decision-making</li>
+            <li>Supports planning through a simple mobile interface</li>
+          </ul>
+        </div>
+        <div class="goal-box">
+          The goal of PalayPlan is to simplify agricultural planning with technology, making important farming tasks easier to manage and more efficient for users.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key purpose</h2>
+      <p class="lead">
+        This project focuses on making farm planning more organized and efficient. It is designed to give users a cleaner way to manage important agricultural activities and improve overall productivity through a mobile-first approach.
+      </p>
+    </div>
+
+    <div class="footer-note">PalayPlan Mobile • Project Overview</div>
+  </div>
+</body>
+</html>
